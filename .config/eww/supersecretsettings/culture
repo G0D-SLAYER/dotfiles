@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+plugged=0
+
+# swaybg -i /home/abhi/.config/eww/images/wallpaper/wallpaper-cultured &
+
+while true; do
+	STATE=$(cat /sys/class/power_supply/BAT0/status)
+    if [[ "$STATE" = "Charging" ]]; then 
+        if [ "$plugged" = "0" ]; then 
+            plugged=$plugged+1 
+            notify-send 'Aghh~~~~'
+            play "/home/abhi/.config/eww/scripts/supersecretsettings/laser.mp3"
+        fi
+    else 
+        plugged=0
+    fi      
+	sleep 1
+done
+
+# /home/abhi/.config/eww/scripts/supersecretsettings/culture

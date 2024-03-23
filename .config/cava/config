@@ -1,0 +1,7 @@
+[input]
+
+method = pipewire
+source = auto
+
+method = pulse
+source = auto
